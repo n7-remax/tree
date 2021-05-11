@@ -1,6 +1,6 @@
 {
   "name": "rc-tree-native-dnd",
-  "version": "4.1.5-3",
+  "version": "4.1.5-4",
   "description": "Modified rc-tree",
   "engines": {
     "node": ">=8.x"
