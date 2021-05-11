@@ -1260,6 +1260,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
       dropIndicatorRender,
       onContextMenu,
       direction,
+      onDropFromOutside,
     } = this.props;
     const domProps: React.HTMLAttributes<HTMLDivElement> = getDataAndAria(this.props);
 
@@ -1284,6 +1285,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
           indent,
           direction,
           dropIndicatorRender,
+          onDropFromOutside,
 
           loadData,
           filterTreeNode,

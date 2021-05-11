@@ -82,6 +82,7 @@ export interface TreeContextProps {
   onNodeDragLeave: NodeDragEventHandler;
   onNodeDragEnd: NodeDragEventHandler;
   onNodeDrop: NodeDragEventHandler;
+  onDropFromOutside?: (event: React.MouseEvent<HTMLDivElement>, node: any) => void;
 }
 
 export const TreeContext: React.Context<TreeContextProps | null> = React.createContext(null);
