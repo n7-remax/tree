@@ -137,6 +137,7 @@ export interface TreeProps {
   onDragOver?: (info: NodeDragEventParams) => void;
   onDragLeave?: (info: NodeDragEventParams) => void;
   onDragEnd?: (info: NodeDragEventParams) => void;
+  onDropFromOutside?: (info: any) => void;
   onDrop?: (
     info: NodeDragEventParams & {
       dragNode: EventDataNode;
@@ -659,15 +660,12 @@ class Tree extends React.Component<TreeProps, TreeState> {
   };
 
   onNodeDrop = (event: React.MouseEvent<HTMLDivElement>, node, outsideTree: boolean = false) => {
-    const {
-      dragChildrenKeys,
-      dropPosition,
-      dropTargetKey,
-      dropTargetPos,
-      dropAllowed,
-    } = this.state;
+    const { dragChildrenKeys, dropPosition, dropTargetKey, dropTargetPos, dropAllowed } =
+      this.state;
 
-    if (!dropAllowed) return;
+    if (!dropAllowed) {
+      this.props.onDropFromOutside(node.props);
+    }
 
     const { onDrop } = this.props;
 
