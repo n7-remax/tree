@@ -557,11 +557,11 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
           'filter-node': filterTreeNode && filterTreeNode(convertNodePropsToEventData(this.props)),
         })}
         style={style}
-        onDragEnter={mergedDraggable ? this.onDragEnter : undefined}
-        onDragOver={mergedDraggable ? this.onDragOver : undefined}
-        onDragLeave={mergedDraggable ? this.onDragLeave : undefined}
+        onDragEnter={mergedDraggable || onDropFromOutside ? this.onDragEnter : undefined}
+        onDragOver={mergedDraggable || onDropFromOutside ? this.onDragOver : undefined}
+        onDragLeave={mergedDraggable || onDropFromOutside ? this.onDragLeave : undefined}
         onDrop={mergedDraggable || onDropFromOutside ? this.onDrop : undefined}
-        onDragEnd={mergedDraggable ? this.onDragEnd : undefined}
+        onDragEnd={mergedDraggable || onDropFromOutside ? this.onDragEnd : undefined}
         onMouseMove={onMouseMove}
         {...dataOrAriaAttributeProps}
       >
